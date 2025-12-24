@@ -1,5 +1,6 @@
 package com.fauzan.projectbang
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         setupCategoryList() // Kategori (Bulat)
         setupLists()        // Pasang Adapter ke RecyclerView
         setupSearch()       // Aktifkan fitur search
+
+        binding.imgProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // Fungsi untuk mengisi Data Asli
