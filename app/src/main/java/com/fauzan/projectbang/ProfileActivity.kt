@@ -6,67 +6,103 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.fauzan.projectbang.databinding.ActivityProfileBinding
+// Import untuk Maps
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityProfileBinding
+    private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Setup Profile Data (Simulasi)
-        // Nanti bisa diambil dari Database/SharedPref
+        setupProfileData()
+        setupMenuClicks()
+        setupBottomNav()
+
+        // Setup Maps Fragment
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.mapFragment) as? SupportMapFragment
+        mapFragment?.getMapAsync(this)
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        // Lokasi Kampus 4 UAD (Contoh)
+        val lokasiSaya = LatLng(-7.8332349, 110.3809325)
+        mMap.addMarker(MarkerOptions().position(lokasiSaya).title("Lokasi Saya"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lokasiSaya, 15.0f))
+        mMap.uiSettings.isZoomControlsEnabled = true
+    }
+
+    private fun setupProfileData() {
         binding.tvName.text = "Fauzan ProjectBang"
 
-        // Load Gambar Profil
         Glide.with(this)
-            .load("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200") // Contoh URL
+            .load("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200")
             .placeholder(R.mipmap.ic_launcher_round)
             .circleCrop()
             .into(binding.imgProfile)
 
-        // 2. Setup Tombol Back
         binding.btnBack.setOnClickListener {
             finish()
         }
+    }
 
-        // 3. Setup Menu Clicks
-
-        // Edit Profile
+    private fun setupMenuClicks() {
         binding.btnEditProfile.setOnClickListener {
-            Toast.makeText(this, "Buka halaman Edit Username...", Toast.LENGTH_SHORT).show()
-            // val intent = Intent(this, EditProfileActivity::class.java)
-            // startActivity(intent)
+            Toast.makeText(this, "Buka halaman Edit Profil...", Toast.LENGTH_SHORT).show()
         }
 
-        // Ganti Password
         binding.btnChangePass.setOnClickListener {
             Toast.makeText(this, "Buka halaman Ganti Password...", Toast.LENGTH_SHORT).show()
         }
 
-        // Alamat / Map
         binding.btnAddress.setOnClickListener {
             Toast.makeText(this, "Membuka Peta Alamat...", Toast.LENGTH_SHORT).show()
-            // val intent = Intent(this, MapActivity::class.java)
-            // startActivity(intent)
         }
 
-        // Metode Pembayaran
         binding.btnPayment.setOnClickListener {
             Toast.makeText(this, "Atur Metode Pembayaran...", Toast.LENGTH_SHORT).show()
         }
 
-        // Order History
+        // --- BAGIAN PENTING: ARAHKAN KE HISTORY ACTIVITY ---
         binding.btnOrderHistory.setOnClickListener {
-            Toast.makeText(this, "Membuka Riwayat Pesanan...", Toast.LENGTH_SHORT).show()
+            // Pastikan ini HistoryActivity::class.java
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
         }
 
-        // Logout
         binding.btnLogout.setOnClickListener {
             Toast.makeText(this, "Berhasil Keluar Akun", Toast.LENGTH_SHORT).show()
-            // Logic logout (clear session) & kembali ke Login Page
         }
+    }
+
+    private fun setupBottomNav() {
+        // Klik HOME -> Pindah ke MainActivity
+        binding.navHome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+            finish()
+        }
+
+        // Klik CART -> Pindah ke CartActivity
+        binding.navCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+            overridePendingTransition(0, 0)
+            finish()
+        }
+
+        // Klik PROFILE -> Diam saja (karena sedang di sini)
     }
 }

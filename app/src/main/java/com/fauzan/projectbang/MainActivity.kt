@@ -36,6 +36,21 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
+        binding.navHome.setOnClickListener {
+            // Opsional: Scroll ke atas
+        }
+
+        // 2. Klik Cart
+        binding.navCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
+
+        // 3. Klik Profile
+        binding.navProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
     }
 
     // Fungsi untuk mengisi Data Asli
