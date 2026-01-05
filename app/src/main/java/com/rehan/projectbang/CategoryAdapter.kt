@@ -1,10 +1,10 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fauzan.projectbang.databinding.ItemCategoryBinding
+import com.rehan.projectbang.databinding.ItemCategoryBinding
 
 class CategoryAdapter(private val items: List<CategoryModel>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
@@ -19,9 +19,9 @@ class CategoryAdapter(private val items: List<CategoryModel>) : RecyclerView.Ada
         val item = items[position]
         holder.binding.tvCategoryName.text = item.title
 
-        // Load gambar bulat
+        // Load gambar bulat dari URL
         Glide.with(holder.itemView.context)
-            .load(item.imageUrl)
+            .load(item.imageUrl) // KEMBALI MENGGUNAKAN URL
             .circleCrop()
             .into(holder.binding.imgCategory)
     }

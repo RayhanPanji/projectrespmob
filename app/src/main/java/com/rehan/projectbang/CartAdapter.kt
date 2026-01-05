@@ -1,10 +1,10 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fauzan.projectbang.databinding.ItemCartBinding
+import com.rehan.projectbang.databinding.ItemCartBinding
 import java.text.NumberFormat
 import java.util.Locale
 

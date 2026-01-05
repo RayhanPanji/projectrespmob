@@ -5,13 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.fauzan.projectbang"
-    compileSdk {
-        version = release(36)
-    }
+    namespace = "com.rehan.projectbang"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.fauzan.projectbang"
+        applicationId = "com.rehan.projectbang"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

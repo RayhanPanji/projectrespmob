@@ -1,4 +1,4 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 // Model Data khusus untuk item di keranjang
 // Kita tambahkan detail seperti quantity, size, sugar, dll.

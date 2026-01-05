@@ -1,4 +1,4 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

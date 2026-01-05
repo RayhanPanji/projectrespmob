@@ -1,12 +1,11 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.fauzan.projectbang.databinding.ActivityProfileBinding
-// Import untuk Maps
+import com.rehan.projectbang.databinding.ActivityProfileBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -28,7 +27,6 @@ class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
         setupMenuClicks()
         setupBottomNav()
 
-        // Setup Maps Fragment
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.mapFragment) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
@@ -36,7 +34,6 @@ class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        // Lokasi Kampus 4 UAD (Contoh)
         val lokasiSaya = LatLng(-7.8332349, 110.3809325)
         mMap.addMarker(MarkerOptions().position(lokasiSaya).title("Lokasi Saya"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lokasiSaya, 15.0f))
@@ -44,10 +41,10 @@ class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun setupProfileData() {
-        binding.tvName.text = "Fauzan ProjectBang"
+        binding.tvName.text = "MUHAMMAD RAYHAN PANJI"
 
         Glide.with(this)
-            .load("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200")
+            .load(R.drawable.bjorlil)
             .placeholder(R.mipmap.ic_launcher_round)
             .circleCrop()
             .into(binding.imgProfile)

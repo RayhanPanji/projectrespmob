@@ -1,4 +1,4 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 data class CategoryModel(
     val title: String,

@@ -1,10 +1,10 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fauzan.projectbang.databinding.ActivityHistoryBinding
+import com.rehan.projectbang.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
 

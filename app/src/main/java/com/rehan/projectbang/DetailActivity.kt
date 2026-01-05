@@ -1,11 +1,11 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.fauzan.projectbang.databinding.ActivityDetailBinding
+import com.rehan.projectbang.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 

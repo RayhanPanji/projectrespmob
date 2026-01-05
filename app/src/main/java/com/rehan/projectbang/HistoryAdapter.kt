@@ -1,9 +1,10 @@
-package com.fauzan.projectbang
+package com.rehan.projectbang
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.fauzan.projectbang.databinding.ItemHistoryBinding
+import com.rehan.projectbang.OrderModel
+import com.rehan.projectbang.databinding.ItemHistoryBinding
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
