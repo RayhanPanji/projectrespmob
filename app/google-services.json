@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "980058587386",
+    "project_id": "projectresp439",
+    "storage_bucket": "projectresp439.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980058587386:android:c0a5457fbf1bb03d0e4943",
+        "android_client_info": {
+          "package_name": "com.fauzan.projectbang"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC15JvjF1BycDNMiIbLQkgx8Oy2zWpXRRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980058587386:android:ca712b02d9eef1230e4943",
+        "android_client_info": {
+          "package_name": "com.rehan.projectbang"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC15JvjF1BycDNMiIbLQkgx8Oy2zWpXRRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
